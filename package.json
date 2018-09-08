@@ -1,0 +1,41 @@
+{
+  "name": "emere-graphql",
+  "version": "1.0.0",
+  "description": "GraphQL Server for EMERE",
+  "main": "./src/app.js",
+  "scripts": {
+    "start": "pm2 start index.js --watch",
+    "stop": "pm2 stop index.js",
+    "build": "babel src -d dist",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://zeferinix@bitbucket.org/brader/emere-graphql.git"
+  },
+  "keywords": [
+    "EMERE",
+    "NodeJS",
+    "JavaScript",
+    "GraphQL"
+  ],
+  "author": "Cerino O. Ligutom III <zeferinix@gmail.com> (zeferinix)",
+  "license": "Apache-2.0",
+  "homepage": "https://bitbucket.org/brader/emere-graphql#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "pm2": "^3.0.4"
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3"
+  }
+}
