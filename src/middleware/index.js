@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 
+import cors from 'cors';
+import express from 'express';
 import env from '../config';
 
 const morgan = require('morgan');
@@ -15,6 +17,9 @@ function overrideConsoleLogging() {
 }
 
 module.exports = (app) => {
+  app.use(cors());
+  app.use(express.json());
+
   // Access logs
   const accessLogStream = fs.createWriteStream(`${env.logDirectory}/access.log`, { flags: 'a' });
   morgan.format(
