@@ -4,20 +4,12 @@ import cors from 'cors';
 import express from 'express';
 import env from '../config';
 
+const compression = require('compression');
 const morgan = require('morgan');
 const fs = require('fs');
 const logger = require('../utils/logger');
-const compression = require('compression');
 
-function overrideConsoleLogging() {
-  console.log = (...args) => logger.info.call(logger, ...args);
-  console.info = (...args) => logger.info.call(logger, ...args);
-  console.warn = (...args) => logger.warn.call(logger, ...args);
-  console.error = (...args) => logger.error.call(logger, ...args);
-  console.debug = (...args) => logger.debug.call(logger, ...args);
-}
-
-module.exports = (app) => {
+export default (app) => {
   app.use(cors());
   app.use(express.json());
   app.use(compression());
@@ -33,9 +25,8 @@ module.exports = (app) => {
   // Custom Logger
   app.use(
     morgan('combined', {
+      skip: (req, res) => res.statusCode < 400,
       stream: logger.stream,
     }),
   );
-
-  overrideConsoleLogging();
 };

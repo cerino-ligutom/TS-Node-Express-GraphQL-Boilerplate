@@ -1,11 +1,14 @@
 import express from 'express';
 import env from './config';
+import initMiddleware from './middleware';
+import initApolloGraphQL from './graphql';
 
 const app = express();
 
-require('./middleware')(app);
-
 const startApp = async () => {
+  initMiddleware(app);
+  initApolloGraphQL(app);
+
   // Endpoint to check if the API is running
   app.get('/api/status', (req, res) => {
     res.send({ status: 'ok' });
