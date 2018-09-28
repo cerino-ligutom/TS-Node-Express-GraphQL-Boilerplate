@@ -7,6 +7,7 @@ import env from '../config';
 const morgan = require('morgan');
 const fs = require('fs');
 const logger = require('../utils/logger');
+const compression = require('compression');
 
 function overrideConsoleLogging() {
   console.log = (...args) => logger.info.call(logger, ...args);
@@ -19,6 +20,7 @@ function overrideConsoleLogging() {
 module.exports = (app) => {
   app.use(cors());
   app.use(express.json());
+  app.use(compression());
 
   // Access logs
   const accessLogStream = fs.createWriteStream(`${env.logDirectory}/access.log`, { flags: 'a' });
