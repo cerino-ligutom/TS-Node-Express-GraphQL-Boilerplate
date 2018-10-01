@@ -17,9 +17,16 @@ export const Query = {
 export const Mutation = {
   // We can further destructure a property inside a property
   CreateUser: async (_, { input }, { InMemoryConnector: { User } }) => {
-    const user = await User.createUser(input);
+    const createdUser = await User.createUser(input);
 
-    return user;
+    const response = {
+      code: 200,
+      success: true,
+      message: 'User added',
+      user: createdUser,
+    };
+
+    return response;
   },
 };
 

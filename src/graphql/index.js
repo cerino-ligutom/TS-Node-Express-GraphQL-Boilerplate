@@ -12,7 +12,7 @@ export default (app) => {
     }),
     playground: {
       settings: {
-        'editor.theme': 'dark',
+        'editor.theme': 'light',
       },
     },
   });

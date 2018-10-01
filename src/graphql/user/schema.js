@@ -8,7 +8,7 @@ const User = gql`
   }
 
   extend type Mutation {
-    CreateUser(input: CreateUserInput!): User
+    CreateUser(input: CreateUserInput!): CreateUserMutationResponse
   }
 
   type User {
@@ -22,6 +22,13 @@ const User = gql`
     email: String
     image: String
     createdAt: Date
+  }
+
+  type CreateUserMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    user: User
   }
 
   input CreateUserInput {

@@ -8,6 +8,12 @@ const Base = `
   }
 
   scalar Date
+
+  interface MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+  }
 `;
 
 export default () => [Base];

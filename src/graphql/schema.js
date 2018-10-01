@@ -11,4 +11,7 @@ export default makeExecutableSchema({
   typeDefs: [Base, User],
   resolvers,
   logger: { log: e => console.log(e) }, // eslint-disable-line no-console
+  resolverValidationOptions: {
+    requireResolversForResolveType: false,
+  },
 });
