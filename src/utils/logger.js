@@ -12,7 +12,7 @@ const myFormat = printf(
 
 const options = {
   error: {
-    filename: `${env.logDirectory}/error.log`,
+    filename: `${env.LOG_DIRECTORY}/error.log`,
     level: 'error',
     json: true,
     maxsize: 5242880, // 5MB
@@ -20,7 +20,7 @@ const options = {
     colorize: false,
   },
   combined: {
-    filename: `${env.logDirectory}/combined.log`,
+    filename: `${env.LOG_DIRECTORY}/combined.log`,
     json: true,
     maxsize: 5242880, // 5MB
     maxFiles: 5,

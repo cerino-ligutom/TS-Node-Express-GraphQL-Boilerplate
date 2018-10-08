@@ -7,24 +7,45 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 const environment = {
   development: {
     NODE_ENV: 'development',
-    port: process.env.PORT || 3000,
-    host: process.env.HOST || 'localhost',
-    logDirectory: `${appRoot}/logs`,
+    PORT: process.env.PORT || 3000,
+    HOST: process.env.HOST || 'localhost',
+    LOG_DIRECTORY: `${appRoot}/logs`,
+    DATABASE: {
+      URL: 'postgres://emere:password@localhost:5432/EMERE',
+      POOL_MIN: 2,
+      POOL_MAX: 10,
+      TIMEOUT: 60000, // in ms
+      DEBUG: true,
+    },
   },
 
   staging: {
     NODE_ENV: 'staging',
-    port: process.env.PORT || 3000,
-    host: process.env.HOST || 'localhost',
-    logDirectory: `${appRoot}/logs`,
+    PORT: process.env.PORT || 3000,
+    HOST: process.env.HOST || 'localhost',
+    LOG_DIRECTORY: `${appRoot}/logs`,
+    DATABASE: {
+      URL: '',
+      POOL_MIN: 2,
+      POOL_MAX: 10,
+      TIMEOUT: 60000, // in ms
+      DEBUG: true,
+    },
   },
 
   production: {
     NODE_ENV: 'production',
-    port: process.env.PORT || 3000,
-    host: process.env.HOST || 'localhost',
-    logDirectory: `${appRoot}/logs`,
+    PORT: process.env.PORT || 3000,
+    HOST: process.env.HOST || 'localhost',
+    LOG_DIRECTORY: `${appRoot}/logs`,
+    DATABASE: {
+      URL: '',
+      POOL_MIN: 2,
+      POOL_MAX: 10,
+      TIMEOUT: 60000, // in ms
+      DEBUG: false,
+    },
   },
 };
 
-export default environment[NODE_ENV];
+module.exports = environment[NODE_ENV];

@@ -6,9 +6,17 @@ export const Query = {
     return users;
   },
 
-  // We can use object destructuring to access the property directly
-  User: async (_, { id }, { InMemoryConnector }) => {
-    const user = await InMemoryConnector.User.getById(id);
+  // In-memory connector
+  // // We can use object destructuring to access the property directly
+  // User: async (_, { id }, { InMemoryConnector }) => {
+  //   const user = await InMemoryConnector.User.getById(id);
+
+  //   return user;
+  // },
+
+  // Postgre DB User connector
+  User: async (_, { id }, { UserConnector }) => {
+    const user = await UserConnector.getById(id);
 
     return user;
   },

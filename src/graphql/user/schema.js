@@ -13,15 +13,12 @@ const User = gql`
 
   type User {
     id: ID!
-    username: String
-    hash: String
     firstName: String
     middleName: String
     lastName: String
     fullName: String
-    email: String
-    image: String
     createdAt: Date
+    updatedAt: Date
   }
 
   type CreateUserMutationResponse implements MutationResponse {
