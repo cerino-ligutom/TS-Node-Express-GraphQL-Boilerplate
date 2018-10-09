@@ -2,12 +2,12 @@
 
 import { ModelClass } from 'objection';
 
-export default class BaseConnector {
+export default class BaseService {
   model: ModelClass;
 
   constructor(model: ModelClass) {
     if (!model) {
-      throw Error('No derived connector provided');
+      throw Error('No derived service provided');
     }
     this.model = model;
   }
