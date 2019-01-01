@@ -1,2 +1,3 @@
-require('babel-register');
-require('./src/app.js');
+require('ts-node/register');
+require('tsconfig-paths/register');
+require('./src/app.ts');
