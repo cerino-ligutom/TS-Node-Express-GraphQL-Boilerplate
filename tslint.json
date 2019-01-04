@@ -3,10 +3,12 @@
   "extends": ["tslint:recommended"],
   "jsRules": {},
   "rules": {
-    "no-console": [true, "log", "error"],
+    "no-console": [true, "log"],
     "quotemark": [true, "single"],
     "no-var-requires": false,
-    "indent": [true, "spaces", 2]
+    "indent": [true, "spaces", 2],
+    "ordered-imports": false,
+    "no-unused-variable": true
   },
   "rulesDirectory": []
 }
