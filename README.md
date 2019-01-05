@@ -13,7 +13,7 @@ npm install -g --production windows-build-tools
 2. Install cli dependencies globally
 
 ```
-npm install -g pm2 typeorm
+npm install -g pm2 typeorm ts-node
 ```
 
 ## Setup
