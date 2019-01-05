@@ -4,7 +4,7 @@ import express from 'express';
 
 import { env } from '@EMERE/config/environment';
 import { initDbConnection } from './postgres';
-import initRoutes from './routes';
+import { ServerRouter } from './routes';
 
 const app = express();
 
@@ -15,7 +15,7 @@ const startApp = async () => {
   app.use(express.json());
   app.use(compression());
 
-  app.use('/api', initRoutes());
+  app.use('/api', ServerRouter);
 
   app.listen(env.PORT, () => {
     console.info(`EMERE Server is now up @ ${env.HOST}:${env.PORT}`);

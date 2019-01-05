@@ -1,10 +1,8 @@
 import express from 'express';
-import { maintenanceRoutes } from './maintenance';
+import { MaintenanceRouter } from './maintenance.routes';
 
-const routes = express.Router();
+const router = express.Router();
 
-export default () => {
-  routes.use('/maintenance', maintenanceRoutes());
+router.use('/maintenance', MaintenanceRouter);
 
-  return routes;
-};
+export const ServerRouter = router;
