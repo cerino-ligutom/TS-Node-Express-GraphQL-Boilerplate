@@ -1,4 +1,4 @@
 import { User } from '@EMERE/pg/models';
-import { IRepository } from '@EMERE/pg/repository-interfaces';
+import { IRepository } from './IRepository';
 
 export interface IUserRepository extends IRepository<User> {}
