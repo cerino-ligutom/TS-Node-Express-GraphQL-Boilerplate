@@ -9,7 +9,11 @@
     "lint": "tslint -c tslint.json 'src/**/*.ts",
     "tsc": "tsc",
     "clean": "rimraf ./dist",
-    "logs": "pm2 logs EMERE-GraphQL"
+    "logs": "pm2 logs EMERE-GraphQL",
+    "migration:create": "node ./scripts/typeorm/migration-create",
+    "migration:generate": "node ./scripts/typeorm/migration-generate",
+    "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
+    "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert"
   },
   "repository": {
     "type": "git",
