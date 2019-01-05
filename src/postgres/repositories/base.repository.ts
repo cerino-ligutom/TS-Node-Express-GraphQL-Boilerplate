@@ -1,5 +1,5 @@
-import { IRepository } from '@EMERE/pg/repository-interfaces';
-import { DeepPartial, EntitySchema, getConnection } from 'typeorm';
+import { IRepository } from './interfaces';
+import { DeepPartial, getConnection } from 'typeorm';
 
 export abstract class BaseRepository<T> implements IRepository<T> {
   constructor(private entity: new () => T) {}

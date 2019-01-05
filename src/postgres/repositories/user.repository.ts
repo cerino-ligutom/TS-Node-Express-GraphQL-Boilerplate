@@ -9,3 +9,5 @@ export class UserRepository extends BaseRepository<User>
     super(User);
   }
 }
+
+export const userRepository = new UserRepository();

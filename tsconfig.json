@@ -47,9 +47,6 @@
     "paths": {
       "@EMERE/config*": ["./src/config*"],
       "@EMERE/utils": ["./src/utils"],
-      "@EMERE/pg/repository-interfaces": [
-        "./src/postgres/repositories/interfaces"
-      ],
       "@EMERE/pg/repositories": ["./src/postgres/repositories"],
       "@EMERE/pg/models": ["./src/postgres/models"],
       "@EMERE/controllers": ["./src/controllers"]
