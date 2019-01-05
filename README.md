@@ -10,10 +10,10 @@ GraphQL Server API for EMERE
 npm install -g --production windows-build-tools
 ```
 
-2. Install `pm2` globally
+2. Install cli dependencies globally
 
 ```
-npm install -g pm2
+npm install -g pm2 typeorm
 ```
 
 ## Setup
