@@ -1,0 +1,8 @@
+type Query {
+  _dummy: String
+  serverTime: Date
+}
+
+type Mutation {
+  _dummy: String
+}

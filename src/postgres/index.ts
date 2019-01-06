@@ -4,7 +4,7 @@ import { createConnection } from 'typeorm';
 export const initDbConnection = () => {
   return createConnection()
     .then(async (connection) => {
-      console.info('db connected:', connection.isConnected);
+      console.info('Database Connection:', connection.isConnected);
       return connection.isConnected;
     })
     .catch((err) => {

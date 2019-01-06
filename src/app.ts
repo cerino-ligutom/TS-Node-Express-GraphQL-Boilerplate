@@ -5,6 +5,7 @@ import express from 'express';
 import { env } from '@EMERE/config/environment';
 import { initDbConnection } from './postgres';
 import { ServerRouter } from './routes';
+import { initApolloGraphqlServer } from './graphql';
 
 const app = express();
 
@@ -16,6 +17,7 @@ const startApp = async () => {
   app.use(compression());
 
   app.use('/api', ServerRouter);
+  initApolloGraphqlServer(app);
 
   app.listen(env.PORT, () => {
     console.info(`EMERE Server is now up @ ${env.HOST}:${env.PORT}`);
