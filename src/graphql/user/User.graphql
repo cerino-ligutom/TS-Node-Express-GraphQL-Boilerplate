@@ -1,0 +1,62 @@
+extend type Query {
+  getUser(id: ID!): User
+}
+
+extend type Mutation {
+  createUser(input: CreateUserInput!): CreateUserMutationResponse
+  updateUser(id: ID!, input: UpdateUserInput!): UpdateUserMutationResponse
+  deleteUsers(id: [ID]!): DeleteUsersMutationResponse
+}
+
+type User {
+  id: ID
+  uuid: ID
+  username: String
+  email: String
+  firstName: String
+  middleName: String
+  lastName: String
+  description: String
+  createdAt: Date
+  updatedAt: Date
+}
+
+input CreateUserInput {
+  username: String
+  email: String
+  firstName: String
+  middleName: String
+  lastName: String
+  description: String
+  password: String
+}
+
+input UpdateUserInput {
+  username: String
+  email: String
+  firstName: String
+  middleName: String
+  lastName: String
+  description: String
+}
+
+type CreateUserMutationResponse implements MutationResponse {
+  data: User
+  code: String
+  success: Boolean
+  message: String
+}
+
+type UpdateUserMutationResponse implements MutationResponse {
+  data: User
+  code: String
+  success: Boolean
+  message: String
+}
+
+type DeleteUsersMutationResponse implements MutationResponse {
+  data: [User]
+  code: String
+  success: Boolean
+  message: String
+}

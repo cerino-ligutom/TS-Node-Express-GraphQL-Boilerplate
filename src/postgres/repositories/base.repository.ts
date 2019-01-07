@@ -19,4 +19,8 @@ export abstract class BaseRepository<T> implements IRepository<T> {
   public save(data: DeepPartial<T>): Promise<T | undefined> {
     return this.repository.save(data);
   }
+
+  public remove(data: T[]): Promise<T[]> {
+    return this.repository.remove(data);
+  }
 }

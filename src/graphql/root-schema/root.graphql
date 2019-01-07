@@ -1,8 +1,8 @@
 type Query {
-  _dummy: String
-  serverTime: Date
+  _dummy: String @deprecated
+  _serverTime: Date @deprecated
 }
 
 type Mutation {
-  _dummy: String
+  _dummy: String @deprecated
 }

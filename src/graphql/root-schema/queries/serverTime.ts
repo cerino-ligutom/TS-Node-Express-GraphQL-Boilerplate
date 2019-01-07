@@ -1,7 +1,7 @@
 import moment from 'moment';
 
 export default {
-  serverTime: () => {
+  _serverTime: () => {
     return moment();
   },
 };
