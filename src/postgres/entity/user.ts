@@ -1,14 +1,9 @@
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  Generated,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Column, CreateDateColumn, Entity, Generated, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
-@Entity()
-export class User {
+@Entity({
+  name: 'user',
+})
+export class UserEntity {
   @PrimaryGeneratedColumn()
   public id!: number;
 
@@ -49,7 +44,7 @@ export class User {
     nullable: true,
     type: 'text',
   })
-  public description!: string;
+  public description!: string | null | undefined;
 
   @CreateDateColumn({
     type: 'timestamptz',

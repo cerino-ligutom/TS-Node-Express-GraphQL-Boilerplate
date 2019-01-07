@@ -1,26 +1,33 @@
-import { IRepository } from './interfaces';
 import { DeepPartial, getConnection } from 'typeorm';
 
-export abstract class BaseRepository<T> implements IRepository<T> {
-  constructor(private entity: new () => T) {}
+export class BaseRepository<T> {
+  constructor(protected entity: new () => T) {}
 
   protected get repository() {
     return getConnection().getRepository(this.entity);
   }
 
-  public findById(id: number): Promise<T | undefined> {
+  public async findById(id: number): Promise<T | undefined> {
+    if (!id) {
+      throw new Error('No id provided.');
+    }
+
     return this.repository.findOne(id);
   }
 
-  public findByIds(ids: number[]): Promise<T[] | undefined> {
+  public async findByIds(ids: number[]): Promise<T[] | undefined> {
+    if (!ids || !ids.length) {
+      throw new Error('No ids provided.');
+    }
+
     return this.repository.findByIds(ids);
   }
 
-  public save(data: DeepPartial<T>): Promise<T | undefined> {
+  public async save(data: DeepPartial<T>): Promise<T | undefined> {
     return this.repository.save(data);
   }
 
-  public remove(data: T[]): Promise<T[]> {
+  public async remove(data: T): Promise<T> {
     return this.repository.remove(data);
   }
 }

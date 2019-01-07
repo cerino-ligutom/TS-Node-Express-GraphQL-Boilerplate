@@ -2,16 +2,21 @@ import { Express } from 'express';
 import { ApolloServer, GraphQLExtension } from 'apollo-server-express';
 import depthLimit from 'graphql-depth-limit';
 import { schema } from './schema';
+import { IGraphQLContext } from '@EMERE/utils';
+import { UserRepository } from '@EMERE/pg/repositories';
 
 export const initApolloGraphqlServer = (app: Express) => {
   const server = new ApolloServer({
     schema,
-    context: ({ req }: { req: any }) => {
-      const { user } = req;
+    context: (ctxArgs: any) => {
+      const { user } = ctxArgs.req;
 
-      return {
+      const graphqlContext: IGraphQLContext = {
         user,
+        UserRepository: new UserRepository(),
       };
+
+      return graphqlContext;
     },
     validationRules: [depthLimit(10)],
   });

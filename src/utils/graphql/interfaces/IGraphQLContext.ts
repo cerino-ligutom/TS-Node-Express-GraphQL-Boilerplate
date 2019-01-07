@@ -1,5 +1,7 @@
-import { User } from '@EMERE/pg/models';
+import { UserEntity } from '@EMERE/pg/models';
+import { UserRepository } from '@EMERE/pg/repositories';
 
 export interface IGraphQLContext {
-  user?: User;
+  user?: UserEntity;
+  UserRepository: UserRepository;
 }

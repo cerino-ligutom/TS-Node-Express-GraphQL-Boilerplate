@@ -1,12 +1,12 @@
 import { IGraphQLContext } from '@EMERE/utils';
-import { userRepository } from '@EMERE/pg/repositories';
-import { User } from '@EMERE/pg/models';
+import { UserEntity } from '@EMERE/pg/models';
 import _ from 'lodash';
 import { passwordService } from '@EMERE/utils';
+import { CreateUserInput, CreateUserMutationResponse } from 'typings/generated/graphql';
 
 export default {
-  createUser: async (parent: any, { input }: { input: any }, context: IGraphQLContext) => {
-    const user = new User();
+  createUser: async (parent: any, { input }: { input: CreateUserInput }, context: IGraphQLContext): Promise<CreateUserMutationResponse> => {
+    const user = new UserEntity();
     user.username = input.username;
     user.email = input.email;
     user.firstName = input.firstName;
@@ -20,11 +20,10 @@ export default {
     user.passwordSalt = salt;
     user.passwordHash = hash;
 
-    const createdUser = await userRepository.save(user);
+    const createdUser = await context.UserRepository.save(user);
 
     return {
       data: createdUser,
-      code: '200',
       success: true,
       message: 'User successfully created.',
     };

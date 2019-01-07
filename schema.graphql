@@ -1,3 +1,26 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  _dummy: String @deprecated
+  _serverTime: Date @deprecated
+}
+
+type Mutation {
+  _dummy: String @deprecated
+}
+
+scalar Date
+
+directive @requireAuth on FIELD_DEFINITION
+
+interface MutationResponse {
+  success: Boolean
+  message: String
+}
+
 extend type Query {
   User(id: ID!): User
 }
