@@ -9,6 +9,7 @@ interface IEnvironmentConfig {
     HOST: string;
     NODE_ENV: string;
     PORT: number;
+    isProduction: boolean;
   };
 }
 
@@ -18,13 +19,7 @@ const environment: IEnvironmentConfig = {
     NODE_ENV: 'development',
     // @ts-ignore
     PORT: +process.env.PORT || DEFAULT_PORT,
-  },
-
-  production: {
-    HOST: process.env.HOST || DEFAULT_HOST,
-    NODE_ENV: 'production',
-    // @ts-ignore
-    PORT: +process.env.PORT || DEFAULT_PORT,
+    isProduction: false,
   },
 
   staging: {
@@ -32,6 +27,15 @@ const environment: IEnvironmentConfig = {
     NODE_ENV: 'staging',
     // @ts-ignore
     PORT: +process.env.PORT || DEFAULT_PORT,
+    isProduction: false,
+  },
+
+  production: {
+    HOST: process.env.HOST || DEFAULT_HOST,
+    NODE_ENV: 'production',
+    // @ts-ignore
+    PORT: +process.env.PORT || DEFAULT_PORT,
+    isProduction: true,
   },
 };
 
