@@ -2,6 +2,7 @@ import path from 'path';
 import { fileLoader, mergeResolvers, mergeTypes } from 'merge-graphql-schemas';
 import { makeExecutableSchema } from 'apollo-server-express';
 import { scalars } from './custom-scalars';
+import { schemaDirectives } from './directives';
 
 // Queries
 let queries = fileLoader(path.join(__dirname, '**/queries/*.ts'));
@@ -20,6 +21,7 @@ resolvers = { ...resolvers, ...scalars }; // Don't forget the scalars
 const typeDefs = mergeTypes(types);
 
 export const schema = makeExecutableSchema({
+  schemaDirectives,
   typeDefs,
   resolvers,
   logger: { log: (e) => console.info(e) },
