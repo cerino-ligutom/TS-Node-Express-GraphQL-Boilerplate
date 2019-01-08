@@ -24,7 +24,13 @@ npm install -g pm2 typeorm ts-node
 npm install
 ```
 
-2. Start server
+2. Build latest GraphQL Schema and Definition Typings
+
+```
+npm run generate:graphql-schema
+```
+
+3. Start server
 
 ```
 npm start
