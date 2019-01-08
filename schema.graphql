@@ -17,8 +17,8 @@ scalar Date
 directive @requireAuth on FIELD_DEFINITION
 
 interface MutationResponse {
-  success: Boolean
-  message: String
+  success: Boolean!
+  message: String!
 }
 
 extend type Query {
@@ -64,18 +64,18 @@ input UpdateUserInput {
 
 type CreateUserMutationResponse implements MutationResponse {
   data: User
-  success: Boolean
-  message: String
+  success: Boolean!
+  message: String!
 }
 
 type UpdateUserMutationResponse implements MutationResponse {
   data: User
-  success: Boolean
-  message: String
+  success: Boolean!
+  message: String!
 }
 
 type DeleteUserMutationResponse implements MutationResponse {
   data: User
-  success: Boolean
-  message: String
+  success: Boolean!
+  message: String!
 }

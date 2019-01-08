@@ -1,4 +1,4 @@
 interface MutationResponse {
-  success: Boolean
-  message: String
+  success: Boolean!
+  message: String!
 }
