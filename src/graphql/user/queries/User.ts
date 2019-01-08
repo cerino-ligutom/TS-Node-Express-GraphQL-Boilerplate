@@ -1,8 +1,11 @@
-import { IGraphQLContext } from '@EMERE/utils';
-import { UserEntity } from '@EMERE/pg/models';
+import { QueryResolvers, IUser } from 'typings/emere-graphql';
+
+const User: QueryResolvers.UserResolver = async (obj, { id }, ctx) => {
+  const user = await ctx.UserRepository.findById(id);
+
+  return user ? user : null;
+};
 
 export default {
-  User: async (parent: any, { id }: { id: number }, ctx: IGraphQLContext): Promise<UserEntity | undefined> => {
-    return ctx.UserRepository.findById(id);
-  },
+  User,
 };

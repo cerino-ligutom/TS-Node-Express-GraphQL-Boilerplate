@@ -22,7 +22,7 @@ interface MutationResponse {
 }
 
 extend type Query {
-  User(id: ID!): User
+  User(id: Int!): User
 }
 
 extend type Mutation {
