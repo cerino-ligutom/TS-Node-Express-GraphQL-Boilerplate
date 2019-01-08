@@ -1,10 +1,20 @@
 require('tsconfig-paths/register');
 
-import { getTypeDefs } from '../../src/graphql/schema';
+import { execSync as execute } from 'child_process';
+import { getTypeDefs } from '@EMERE/utils';
 import { writeFileSync } from 'fs';
 import { mergeTypes } from 'merge-graphql-schemas';
+import fs from 'fs';
 
-const execute = require('child_process').execSync;
+// Create folders if it doesn't exist
+const TYPINGS_FOLDER_PATH = './typings';
+const SCHEMA_FOLDER_PATH = `${TYPINGS_FOLDER_PATH}/emere-graphql`;
+if (!fs.existsSync(TYPINGS_FOLDER_PATH)) {
+  fs.mkdirSync(TYPINGS_FOLDER_PATH);
+}
+if (!fs.existsSync(SCHEMA_FOLDER_PATH)) {
+  fs.mkdirSync(SCHEMA_FOLDER_PATH);
+}
 
 console.info('Retrieving graphql schema...');
 const typeDefs = mergeTypes(getTypeDefs());

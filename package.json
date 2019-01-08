@@ -4,18 +4,18 @@
   "description": "GraphQL Server for E-MERE",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start ecosystem.config.js && npm run logs",
+    "start": "npm-run-all pm2:*",
     "build": "npm run clean && tsc && npm run lint",
     "lint": "tslint -c tslint.json 'src/**/*.ts",
     "tsc": "tsc",
     "clean": "rimraf ./dist",
-    "logs": "pm2 logs EMERE-GraphQL",
+    "pm2:start-app": "pm2 start ecosystem.config.js",
+    "pm2:logs": "pm2 logs EMERE-GraphQL",
     "migration:create": "node ./scripts/typeorm/migration-create",
     "migration:generate": "node ./scripts/typeorm/migration-generate",
     "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
     "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert",
-    "generate-typings": "npm run generate-typings:graphql-schema",
-    "generate-typings:graphql-schema": "ts-node ./scripts/gql-gen/generate-graphql-schema"
+    "generate:graphql-schema": "ts-node ./scripts/gql-gen/generate-graphql-schema"
   },
   "repository": {
     "type": "git",
@@ -49,6 +49,7 @@
     "graphql-codegen-typescript-common": "0.15.2",
     "graphql-codegen-typescript-resolvers": "0.15.2",
     "graphql-codegen-typescript-server": "0.15.2",
+    "npm-run-all": "^4.1.5",
     "rimraf": "^2.6.2",
     "ts-node": "^7.0.1",
     "tsconfig-paths": "^3.7.0",

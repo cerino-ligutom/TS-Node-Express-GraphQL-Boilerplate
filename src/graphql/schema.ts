@@ -3,10 +3,7 @@ import { fileLoader, mergeResolvers, mergeTypes } from 'merge-graphql-schemas';
 import { makeExecutableSchema } from 'apollo-server-express';
 import { scalars } from './custom-scalars';
 import { schemaDirectives } from './directives';
-
-export const getTypeDefs = () => {
-  return fileLoader(path.join(__dirname, '**/*.graphql'));
-};
+import { getTypeDefs } from '@EMERE/utils';
 
 const getQueries = () => {
   const loadedQueries = fileLoader(path.join(__dirname, '**/queries/*.ts'));

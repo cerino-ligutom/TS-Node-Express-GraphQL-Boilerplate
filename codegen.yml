@@ -1,12 +1,11 @@
 overwrite: true
-schema: './schema.graphql'
-documents: null
+schema: schema.graphql
 generates:
-  ./typings/generated/graphql.d.ts:
+  typings/emere-graphql/index.d.ts:
     plugins:
       - 'typescript-common'
       - 'typescript-server'
       - 'typescript-resolvers'
-  ./schema.graphql.json:
+  schema.graphql.json:
     plugins:
       - 'introspection'
