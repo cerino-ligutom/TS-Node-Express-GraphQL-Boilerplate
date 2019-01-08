@@ -1,10 +1,10 @@
 import { IGraphQLContext } from '@EMERE/utils';
-import { UpdateUserInput, UpdateUserMutationResponse } from 'typings/generated/graphql';
+import { UpdateUserMutationResponse, UpdateUserMutationArgs } from 'typings/emere-graphql';
 import _ from 'lodash';
 import { UserInputError } from 'apollo-server-core';
 
 export default {
-  updateUser: async (parent: any, { input }: { input: UpdateUserInput }, ctx: IGraphQLContext): Promise<UpdateUserMutationResponse> => {
+  updateUser: async (parent: any, { input }: UpdateUserMutationArgs, ctx: IGraphQLContext): Promise<UpdateUserMutationResponse> => {
     const user = await ctx.UserRepository.findById(input.id);
 
     if (user) {

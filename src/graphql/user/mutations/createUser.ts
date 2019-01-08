@@ -2,10 +2,10 @@ import { IGraphQLContext } from '@EMERE/utils';
 import { UserEntity } from '@EMERE/pg/models';
 import _ from 'lodash';
 import { passwordService } from '@EMERE/utils';
-import { CreateUserInput, CreateUserMutationResponse } from 'typings/generated/graphql';
+import { CreateUserMutationResponse, CreateUserMutationArgs } from 'typings/emere-graphql';
 
 export default {
-  createUser: async (parent: any, { input }: { input: CreateUserInput }, context: IGraphQLContext): Promise<CreateUserMutationResponse> => {
+  createUser: async (parent: any, { input }: CreateUserMutationArgs, context: IGraphQLContext): Promise<CreateUserMutationResponse> => {
     const user = new UserEntity();
     user.username = input.username;
     user.email = input.email;
