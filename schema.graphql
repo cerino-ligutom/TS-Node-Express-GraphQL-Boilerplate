@@ -5,7 +5,7 @@ schema {
 
 type Query {
   _dummy: String @deprecated
-  _serverTime: Date @deprecated
+  _serverTime: Date @deprecated @requireAuth
 }
 
 type Mutation {

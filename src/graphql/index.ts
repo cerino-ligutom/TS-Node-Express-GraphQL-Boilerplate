@@ -4,6 +4,7 @@ import depthLimit from 'graphql-depth-limit';
 import { schema } from './schema';
 import { IGraphQLContext } from '@EMERE/utils';
 import { UserRepository } from '@EMERE/pg/repositories';
+import { GraphQLRouter } from 'src/routes/graphql.routes';
 
 export const initApolloGraphqlServer = (app: Express) => {
   const server = new ApolloServer({
@@ -21,6 +22,7 @@ export const initApolloGraphqlServer = (app: Express) => {
     validationRules: [depthLimit(10)],
   });
 
+  app.use(GraphQLRouter);
   server.applyMiddleware({
     app,
   });

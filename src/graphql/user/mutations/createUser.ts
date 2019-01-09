@@ -1,7 +1,7 @@
 import { IGraphQLContext } from '@EMERE/utils';
 import { UserEntity } from '@EMERE/pg/models';
 import _ from 'lodash';
-import { passwordService } from '@EMERE/utils';
+import { PasswordService } from '@EMERE/utils';
 import { MutationResolvers, ICreateUserMutationResponse } from 'typings/emere-graphql';
 
 const createUser: MutationResolvers.CreateUserResolver = async (root, { input }, ctx): Promise<ICreateUserMutationResponse> => {
@@ -13,8 +13,8 @@ const createUser: MutationResolvers.CreateUserResolver = async (root, { input },
   user.lastName = input.lastName;
   user.description = input.description;
 
-  const salt = await passwordService.generateSalt();
-  const hash = await passwordService.generateHash(input.password, salt);
+  const salt = await PasswordService.generateSalt();
+  const hash = await PasswordService.generateHash(input.password, salt);
 
   user.passwordSalt = salt;
   user.passwordHash = hash;

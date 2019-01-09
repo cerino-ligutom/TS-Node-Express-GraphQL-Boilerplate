@@ -6,6 +6,8 @@ import { env } from '@EMERE/config/environment';
 import { initDbConnection } from './postgres';
 import { ServerRouter } from './routes';
 import { initApolloGraphqlServer } from './graphql';
+import passport from 'passport';
+import './passport';
 
 const app = express();
 
@@ -15,6 +17,7 @@ const startApp = async () => {
   app.use(cors());
   app.use(express.json());
   app.use(compression());
+  app.use(passport.initialize());
 
   app.use('/api', ServerRouter);
   initApolloGraphqlServer(app);

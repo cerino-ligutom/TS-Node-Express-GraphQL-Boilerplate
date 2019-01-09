@@ -1,4 +1,4 @@
-import { DeepPartial, getConnection } from 'typeorm';
+import { DeepPartial, getConnection, FindManyOptions, FindConditions, FindOneOptions } from 'typeorm';
 
 export class BaseRepository<T> {
   constructor(protected entity: new () => T) {}
@@ -12,7 +12,7 @@ export class BaseRepository<T> {
       throw new Error('No id provided.');
     }
 
-    return this.repository.findOne(id);
+    return await this.repository.findOne(id);
   }
 
   public async findByIds(ids: number[]): Promise<T[] | undefined> {
@@ -20,14 +20,22 @@ export class BaseRepository<T> {
       throw new Error('No ids provided.');
     }
 
-    return this.repository.findByIds(ids);
+    return await this.repository.findByIds(ids);
   }
 
   public async save(data: DeepPartial<T>): Promise<T | undefined> {
-    return this.repository.save(data);
+    return await this.repository.save(data);
   }
 
   public async remove(data: T): Promise<T> {
-    return this.repository.remove(data);
+    return await this.repository.remove(data);
+  }
+
+  public async find(options: FindManyOptions<T>): Promise<T[]> {
+    return await this.repository.find(options);
+  }
+
+  public async findOne(options: FindOneOptions<T>): Promise<T | undefined> {
+    return await this.repository.findOne(options);
   }
 }

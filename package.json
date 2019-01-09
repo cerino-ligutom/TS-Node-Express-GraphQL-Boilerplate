@@ -43,6 +43,7 @@
     "@types/node": "^10.12.18",
     "@types/passport": "^1.0.0",
     "@types/passport-jwt": "^3.0.1",
+    "@types/passport-local": "^1.0.33",
     "eslint": "^5.11.1",
     "graphql-code-generator": "^0.15.2",
     "graphql-codegen-introspection": "^0.15.2",
@@ -73,6 +74,7 @@
     "moment": "^2.23.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
     "pg": "^7.7.1",
     "reflect-metadata": "^0.1.12",
     "typeorm": "^0.2.11"
