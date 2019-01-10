@@ -5,7 +5,7 @@ schema {
 
 type Query {
   _dummy: String @deprecated
-  _serverTime: Date @deprecated @requireAuth
+  _serverTime: Date @deprecated
 }
 
 type Mutation {
@@ -13,8 +13,6 @@ type Mutation {
 }
 
 scalar Date
-
-directive @requireAuth on FIELD_DEFINITION
 
 interface MutationResponse {
   success: Boolean!
