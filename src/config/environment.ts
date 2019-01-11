@@ -10,6 +10,9 @@ interface IEnvironmentConfig {
     NODE_ENV: string;
     PORT: number;
     isProduction: boolean;
+
+    // Value should match name property in ormconfig.json
+    PG_TYPEORM_CONNECTION_NAME: string;
   };
 }
 
@@ -20,6 +23,7 @@ const environment: IEnvironmentConfig = {
     // @ts-ignore
     PORT: +process.env.PORT || DEFAULT_PORT,
     isProduction: false,
+    PG_TYPEORM_CONNECTION_NAME: 'default',
   },
 
   staging: {
@@ -27,7 +31,8 @@ const environment: IEnvironmentConfig = {
     NODE_ENV: 'staging',
     // @ts-ignore
     PORT: +process.env.PORT || DEFAULT_PORT,
-    isProduction: false,
+    isProduction: true,
+    PG_TYPEORM_CONNECTION_NAME: 'staging',
   },
 
   production: {
@@ -36,6 +41,7 @@ const environment: IEnvironmentConfig = {
     // @ts-ignore
     PORT: +process.env.PORT || DEFAULT_PORT,
     isProduction: true,
+    PG_TYPEORM_CONNECTION_NAME: 'production',
   },
 };
 
