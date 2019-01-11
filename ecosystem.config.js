@@ -3,21 +3,13 @@ module.exports = {
     {
       name: 'EMERE-GraphQL',
       script: 'index.js',
-      exec_mode: 'fork',
 
       // Options reference: https://pm2.io/doc/en/runtime/reference/ecosystem-file/
-      instances: 1,
       autorestart: true,
-      max_restarts: 3,
-      min_uptime: 5000,
+      max_restarts: 1,
+      min_uptime: 10000,
       watch: ['src/'],
-      max_memory_restart: '1G',
-      env: {
-        NODE_ENV: 'development'
-      },
-      env_production: {
-        NODE_ENV: 'production'
-      }
+      max_memory_restart: '1G'
     }
   ]
 
