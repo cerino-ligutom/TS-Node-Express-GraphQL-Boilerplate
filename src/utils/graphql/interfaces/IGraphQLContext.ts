@@ -3,5 +3,7 @@ import { UserRepository } from '@EMERE/pg/repositories';
 
 export interface IGraphQLContext {
   user?: UserEntity;
-  UserRepository: UserRepository;
+  pg: {
+    UserRepository: UserRepository;
+  };
 }

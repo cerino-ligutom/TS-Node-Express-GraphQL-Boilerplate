@@ -2,8 +2,12 @@ import _ from 'lodash';
 import { UserInputError } from 'apollo-server-core';
 import { MutationResolvers, IUpdateUserMutationResponse } from 'typings/emere-graphql';
 
-const updateUser: MutationResolvers.UpdateUserResolver = async (root, { input }, ctx): Promise<IUpdateUserMutationResponse> => {
-  const user = await ctx.UserRepository.findById(input.id);
+const updateUser: MutationResolvers.UpdateUserResolver = async (
+  root,
+  { input },
+  ctx,
+): Promise<IUpdateUserMutationResponse> => {
+  const user = await ctx.pg.UserRepository.findById(input.id);
 
   if (user) {
     user.firstName = input.firstName;
@@ -11,7 +15,7 @@ const updateUser: MutationResolvers.UpdateUserResolver = async (root, { input },
     user.lastName = input.lastName;
     user.description = input.description;
 
-    await ctx.UserRepository.save(user);
+    await ctx.pg.UserRepository.save(user);
 
     return {
       data: user,

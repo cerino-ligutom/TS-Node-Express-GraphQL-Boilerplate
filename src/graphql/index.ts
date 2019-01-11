@@ -14,7 +14,10 @@ export const initApolloGraphqlServer = (app: Express) => {
 
       const graphqlContext: IGraphQLContext = {
         user,
-        UserRepository: new UserRepository(),
+        // postgres
+        pg: {
+          UserRepository: new UserRepository(),
+        },
       };
 
       return graphqlContext;

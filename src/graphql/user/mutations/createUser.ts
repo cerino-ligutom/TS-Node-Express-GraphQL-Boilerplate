@@ -4,7 +4,11 @@ import _ from 'lodash';
 import { PasswordService } from '@EMERE/utils';
 import { MutationResolvers, ICreateUserMutationResponse } from 'typings/emere-graphql';
 
-const createUser: MutationResolvers.CreateUserResolver = async (root, { input }, ctx): Promise<ICreateUserMutationResponse> => {
+const createUser: MutationResolvers.CreateUserResolver = async (
+  root,
+  { input },
+  ctx,
+): Promise<ICreateUserMutationResponse> => {
   const user = new UserEntity();
   user.username = input.username;
   user.email = input.email;
@@ -19,7 +23,7 @@ const createUser: MutationResolvers.CreateUserResolver = async (root, { input },
   user.passwordSalt = salt;
   user.passwordHash = hash;
 
-  const createdUser = await ctx.UserRepository.save(user);
+  const createdUser = await ctx.pg.UserRepository.save(user);
 
   return {
     data: createdUser,
