@@ -4,6 +4,8 @@ import { makeExecutableSchema } from 'apollo-server-express';
 import { scalars } from './custom-scalars';
 import { schemaDirectives } from './directives';
 import { getTypeDefs } from '@EMERE/utils';
+import { applyMiddleware } from 'graphql-middleware';
+import { schemaPermissions } from '../graphql-shield';
 
 const getQueries = () => {
   const loadedQueries = fileLoader(path.join(__dirname, '**/queries/*.ts'));
@@ -23,7 +25,7 @@ let resolvers = mergeResolvers([...queries, ...mutations]);
 resolvers = { ...resolvers, ...scalars }; // Don't forget the scalars
 const typeDefs = mergeTypes(getTypeDefs());
 
-export const schema = makeExecutableSchema({
+let graphqlSchema = makeExecutableSchema({
   schemaDirectives,
   typeDefs,
   resolvers,
@@ -32,3 +34,8 @@ export const schema = makeExecutableSchema({
     requireResolversForResolveType: false,
   },
 });
+
+// Apply graphql-shield middleware
+graphqlSchema = applyMiddleware(graphqlSchema, schemaPermissions);
+
+export const schema = graphqlSchema;
