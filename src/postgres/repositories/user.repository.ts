@@ -1,9 +1,9 @@
-import { UserEntity } from '@EMERE/pg/models';
+import { User } from '@EMERE/pg/models';
 
 import { BaseRepository } from './base.repository';
 
-export class UserRepository extends BaseRepository<UserEntity> {
+export class UserRepository extends BaseRepository<User> {
   constructor() {
-    super(UserEntity);
+    super(User);
   }
 }

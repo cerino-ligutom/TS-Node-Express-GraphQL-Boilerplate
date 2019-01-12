@@ -9,6 +9,7 @@ const deleteUser: MutationResolvers.DeleteUserResolver = async (
 
   if (user) {
     await ctx.pg.UserRepository.remove(user);
+    await ctx.loaders.userById.clear(user.id);
   }
 
   return {

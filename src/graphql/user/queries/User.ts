@@ -1,9 +1,7 @@
 import { QueryResolvers, IUser } from 'typings/emere-graphql';
 
 const User: QueryResolvers.UserResolver = async (obj, { id }, ctx) => {
-  const user = await ctx.pg.UserRepository.findById(id);
-
-  return user ? user : null;
+  return await ctx.loaders.userById.load(id);
 };
 
 export default {

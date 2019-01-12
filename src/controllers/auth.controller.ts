@@ -2,11 +2,11 @@ import { BaseController } from './base.controller';
 import { Request, Response, NextFunction } from 'express';
 import passport from 'passport';
 import { JwtService, IJwtPayload } from '@EMERE/utils';
-import { UserEntity } from '@EMERE/pg/models';
+import { User } from '@EMERE/pg/models';
 
 export class AuthController extends BaseController {
   public login(req: Request, res: Response, next: NextFunction) {
-    passport.authenticate('local', async (err, user: UserEntity, info) => {
+    passport.authenticate('local', async (err, user: User, info) => {
       if (err || !user) {
         return next(err);
       }

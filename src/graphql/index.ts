@@ -5,6 +5,7 @@ import { schema } from './schema';
 import { IGraphQLContext } from '@EMERE/utils';
 import { UserRepository } from '@EMERE/pg/repositories';
 import { GraphQLRouter } from 'src/routes/graphql.routes';
+import { initLoaders } from '../graphql-dataloaders';
 
 export const initApolloGraphqlServer = (app: Express) => {
   const server = new ApolloServer({
@@ -18,6 +19,7 @@ export const initApolloGraphqlServer = (app: Express) => {
         pg: {
           UserRepository: new UserRepository(),
         },
+        loaders: initLoaders(),
       };
 
       return graphqlContext;

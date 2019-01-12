@@ -16,6 +16,7 @@ const updateUser: MutationResolvers.UpdateUserResolver = async (
     user.description = input.description;
 
     await ctx.pg.UserRepository.save(user);
+    await ctx.loaders.userById.clear(user.id).load(user.id);
 
     return {
       data: user,

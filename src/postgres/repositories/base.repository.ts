@@ -1,6 +1,7 @@
 import { DeepPartial, getConnection, FindManyOptions, FindConditions, FindOneOptions } from 'typeorm';
+import { IRepository } from './interfaces';
 
-export class BaseRepository<T> {
+export class BaseRepository<T> implements IRepository<T> {
   constructor(protected entity: new () => T) {}
 
   protected get repository() {
@@ -15,7 +16,7 @@ export class BaseRepository<T> {
     return await this.repository.findOne(id);
   }
 
-  public async findByIds(ids: number[]): Promise<T[] | undefined> {
+  public async findByIds(ids: number[]): Promise<T[]> {
     if (!ids || !ids.length) {
       throw new Error('No ids provided.');
     }
