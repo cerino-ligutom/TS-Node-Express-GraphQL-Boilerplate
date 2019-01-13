@@ -2,7 +2,7 @@
   "name": "emere-graphql",
   "version": "1.0.0",
   "description": "GraphQL Server for E-MERE",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "start": "npm-run-all pm2:*",
     "build": "npm run clean && tsc && npm run lint",
