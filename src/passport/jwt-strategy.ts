@@ -11,10 +11,10 @@ passport.use(
       const user = await new UserRepository().findById(jwtPayload.user.id);
 
       if (!user) {
-        done(null, false, { message: 'User not found.' });
+        done(undefined, false, { message: 'User not found.' });
       }
 
-      done(null, user, { message: 'User found.' });
+      done(undefined, user, { message: 'User found.' });
     } catch (error) {
       done(error, false, { message: '[jwt-strategy] Something went wrong.'});
     }

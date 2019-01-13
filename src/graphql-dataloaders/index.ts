@@ -3,7 +3,7 @@ import DataLoader from 'dataloader';
 import { User } from '@EMERE/pg/models';
 
 export interface ILoaders {
-  userById: DataLoader<number, User>;
+  userById: DataLoader<number, User | null>;
 }
 
 export const initLoaders = () => {

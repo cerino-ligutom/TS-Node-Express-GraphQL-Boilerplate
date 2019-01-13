@@ -1,3 +1,5 @@
+/* tslint:disable:no-any */
+
 import { GraphQLScalarType, GraphQLError } from 'graphql';
 import moment from 'moment';
 

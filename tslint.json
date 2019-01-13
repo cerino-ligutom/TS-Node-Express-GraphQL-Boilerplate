@@ -9,7 +9,9 @@
     "indent": [true, "spaces", 2],
     "ordered-imports": false,
     "object-literal-sort-keys": false,
-    "max-line-length": false
+    "max-line-length": false,
+    "no-any": true,
+    "no-null-keyword": true
   },
   "rulesDirectory": []
 }

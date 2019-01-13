@@ -24,12 +24,12 @@ passport.use(
           const isValidPassword = await PasswordService.verify(password, user.passwordHash, user.passwordSalt);
 
           if (isValidPassword) {
-            return done(null, user, { message: 'Logged in successfully ' });
+            return done(undefined, user, { message: 'Logged in successfully ' });
           } else {
-            return done(null, false, { message: 'Wrong password' });
+            return done(undefined, false, { message: 'Wrong password' });
           }
         } else {
-          return done(null, false, { message: 'User not found.' });
+          return done(undefined, false, { message: 'User not found.' });
         }
       } catch (error) {
         return done(error, false, { message: '[local-strategy] Something went wrong.' });

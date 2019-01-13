@@ -1,4 +1,4 @@
-import { DeepPartial, getConnection, FindManyOptions, FindConditions, FindOneOptions } from 'typeorm';
+import { DeepPartial, getConnection, FindManyOptions, FindOneOptions } from 'typeorm';
 import { IRepository } from './interfaces';
 
 export class BaseRepository<T> implements IRepository<T> {

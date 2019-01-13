@@ -1,5 +1,5 @@
-import { Express } from 'express';
-import { ApolloServer, GraphQLExtension } from 'apollo-server-express';
+import { Express, Request } from 'express';
+import { ApolloServer } from 'apollo-server-express';
 import depthLimit from 'graphql-depth-limit';
 import { schema } from './schema';
 import { IGraphQLContext } from '@EMERE/utils';
@@ -10,8 +10,8 @@ import { initLoaders } from '../graphql-dataloaders';
 export const initApolloGraphqlServer = (app: Express) => {
   const server = new ApolloServer({
     schema,
-    context: (ctxArgs: any) => {
-      const { user } = ctxArgs.req;
+    context: ({ req }: { req: Request }) => {
+      const { user } = req;
 
       const graphqlContext: IGraphQLContext = {
         user,
