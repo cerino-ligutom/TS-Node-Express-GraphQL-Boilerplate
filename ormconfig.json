@@ -1,0 +1,78 @@
+[
+  {
+    "name": "default",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "password",
+    "database": "EMERE_DEV",
+    "synchronize": true,
+    "logging": false,
+    "entities": ["src/postgres/entity/**/*.ts"],
+    "migrations": ["src/postgres/migration/**/*.ts"],
+    "subscribers": ["src/postgres/subscriber/**/*.ts"],
+    "cli": {
+      "entitiesDir": "src/postgres/entity",
+      "migrationsDir": "src/postgres/migration",
+      "subscribersDir": "src/postgres/subscriber"
+    }
+  },
+  {
+    "name": "testing",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "password",
+    "database": "EMERE_TEST",
+    "synchronize": true,
+    "logging": false,
+    "entities": ["src/postgres/entity/**/*.ts"],
+    "migrations": ["src/postgres/migration/**/*.ts"],
+    "subscribers": ["src/postgres/subscriber/**/*.ts"],
+    "cli": {
+      "entitiesDir": "src/postgres/entity",
+      "migrationsDir": "src/postgres/migration",
+      "subscribersDir": "src/postgres/subscriber"
+    }
+  },
+  {
+    "name": "staging",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "password",
+    "database": "EMERE",
+    "synchronize": true,
+    "logging": false,
+    "entities": ["src/postgres/entity/**/*.ts"],
+    "migrations": ["src/postgres/migration/**/*.ts"],
+    "subscribers": ["src/postgres/subscriber/**/*.ts"],
+    "cli": {
+      "entitiesDir": "src/postgres/entity",
+      "migrationsDir": "src/postgres/migration",
+      "subscribersDir": "src/postgres/subscriber"
+    }
+  },
+  {
+    "name": "production",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "password",
+    "database": "EMERE",
+    "synchronize": true,
+    "logging": false,
+    "entities": ["src/postgres/entity/**/*.ts"],
+    "migrations": ["src/postgres/migration/**/*.ts"],
+    "subscribers": ["src/postgres/subscriber/**/*.ts"],
+    "cli": {
+      "entitiesDir": "src/postgres/entity",
+      "migrationsDir": "src/postgres/migration",
+      "subscribersDir": "src/postgres/subscriber"
+    }
+  }
+]
