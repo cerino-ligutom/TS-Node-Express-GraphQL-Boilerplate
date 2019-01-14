@@ -1,6 +1,26 @@
-# EMERE-GraphQL
+# TS-Node Express Apollo GraphQL Starter Project
 
-GraphQL Server API for EMERE
+A boilerplate to get you started with Node Express and GraphQL using TypeScript.
+
+## Stack
+
+- PM2
+- NodeJS
+- TypeScript
+- TSLint
+- TS-Node
+- Express
+- Apollo GraphQL
+- GraphQL Shield
+- Facebook dataloader
+- Passport
+    - JWT
+    - Local
+- TypeORM
+- Postgres
+- Winston
+- bcrypt
+- GraphQL Code Generator
 
 ## Prerequisites
 
@@ -24,20 +44,14 @@ npm install -g pm2 typeorm ts-node
 npm install
 ```
 
-2. Build latest GraphQL Schema and Definition Typings
+2. Start graphql code generator watcher
 
 ```
-npm run generate:graphql-schema
+npm run gql-gen
 ```
 
 3. Start server
 
 ```
 npm start
-```
-
-or
-
-```
-pm2 start index.js
 ```
