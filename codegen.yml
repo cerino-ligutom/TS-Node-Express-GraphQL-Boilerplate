@@ -1,7 +1,8 @@
 overwrite: true
-schema: schema.graphql
+schema: ./src/graphql/**/*.graphql
+watch: true
 generates:
-  typings/emere-graphql/index.d.ts:
+  typings/app-graphql-schema/index.d.ts:
     config:
       contextType: '../../src/utils/graphql/interfaces/IGraphQLContext#IGraphQLContext'
       interfacePrefix: I

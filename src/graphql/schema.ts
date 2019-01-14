@@ -2,10 +2,12 @@ import path from 'path';
 import { fileLoader, mergeResolvers, mergeTypes } from 'merge-graphql-schemas';
 import { makeExecutableSchema } from 'apollo-server-express';
 import { scalars } from './custom-scalars';
-import { schemaDirectives } from './directives';
-import { getTypeDefs } from '@EMERE/utils';
 import { applyMiddleware } from 'graphql-middleware';
 import { schemaPermissions } from '../graphql-shield';
+
+const getTypeDefs = () => {
+  return fileLoader(path.join(__dirname, '**/*.graphql'));
+};
 
 const getQueries = () => {
   const loadedQueries = fileLoader(path.join(__dirname, '**/queries/*.ts'));
@@ -26,7 +28,6 @@ resolvers = { ...resolvers, ...scalars }; // Don't forget the scalars
 const typeDefs = mergeTypes(getTypeDefs());
 
 let graphqlSchema = makeExecutableSchema({
-  schemaDirectives,
   typeDefs,
   resolvers,
   logger: { log: (e) => console.info(e) },

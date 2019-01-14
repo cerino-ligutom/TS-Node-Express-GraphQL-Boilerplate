@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { UserInputError } from 'apollo-server-core';
-import { MutationResolvers, IUpdateUserMutationResponse } from 'typings/emere-graphql';
+import { MutationResolvers, IUpdateUserMutationResponse } from 'typings/app-graphql-schema';
 
 const updateUser: MutationResolvers.UpdateUserResolver = async (
   root,

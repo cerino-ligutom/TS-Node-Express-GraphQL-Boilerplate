@@ -7,15 +7,17 @@
     "start": "npm-run-all pm2:*",
     "build": "npm run clean && tsc && npm run lint",
     "lint": "tslint -c tslint.json 'src/**/*.ts",
+    "gql-gen": "npm-run-all create:typings-folder watch:graphql-schema",
     "tsc": "tsc",
     "clean": "rimraf ./dist",
     "pm2:start-app": "pm2 start ecosystem.config.js",
     "pm2:logs": "pm2 logs",
+    "create:typings-folder": "node ./scripts/create-typings-folder.js",
     "migration:create": "node ./scripts/typeorm/migration-create",
     "migration:generate": "node ./scripts/typeorm/migration-generate",
     "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
     "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert",
-    "generate:graphql-schema": "ts-node ./scripts/gql-gen/generate-graphql-schema"
+    "watch:graphql-schema": "gql-gen"
   },
   "repository": {
     "type": "git",

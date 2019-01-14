@@ -25,6 +25,7 @@ export const initApolloGraphqlServer = (app: Express) => {
       return graphqlContext;
     },
     validationRules: [depthLimit(10)],
+    introspection: true,
   });
 
   app.use(GraphQLRouter);
