@@ -13,8 +13,6 @@
     "pm2:start-app": "pm2 start ecosystem.config.js",
     "pm2:logs": "pm2 logs",
     "create:typings-folder": "node ./scripts/create-typings-folder.js",
-    "migration:create": "node ./scripts/typeorm/migration-create",
-    "migration:generate": "node ./scripts/typeorm/migration-generate",
     "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
     "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert",
     "watch:graphql-schema": "gql-gen"
