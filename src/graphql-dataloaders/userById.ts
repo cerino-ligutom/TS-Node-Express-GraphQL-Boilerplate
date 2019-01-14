@@ -1,4 +1,4 @@
-import { UserRepository } from '@EMERE/pg/repositories';
+import { UserRepository } from '@app/pg/repositories';
 import { createIdDataLoader } from './common';
 import DataLoader from 'dataloader';
 

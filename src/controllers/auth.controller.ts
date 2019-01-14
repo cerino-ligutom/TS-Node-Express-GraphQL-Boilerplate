@@ -1,8 +1,8 @@
 import { BaseController } from './base.controller';
 import { Request, Response, NextFunction } from 'express';
 import passport from 'passport';
-import { JwtService, IJwtPayload } from '@EMERE/utils';
-import { User } from '@EMERE/pg/models';
+import { JwtService, IJwtPayload } from '@app/utils';
+import { User } from '@app/pg/models';
 
 export class AuthController extends BaseController {
   public login(req: Request, res: Response, next: NextFunction) {

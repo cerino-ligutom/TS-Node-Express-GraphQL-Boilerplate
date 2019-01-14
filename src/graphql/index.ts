@@ -2,8 +2,8 @@ import { Express, Request } from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import depthLimit from 'graphql-depth-limit';
 import { schema } from './schema';
-import { IGraphQLContext } from '@EMERE/utils';
-import { UserRepository } from '@EMERE/pg/repositories';
+import { IGraphQLContext } from '@app/utils';
+import { UserRepository } from '@app/pg/repositories';
 import { GraphQLRouter } from 'src/routes/graphql.routes';
 import { initLoaders } from '../graphql-dataloaders';
 

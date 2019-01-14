@@ -1,5 +1,5 @@
 import { rule } from 'graphql-shield';
-import { IGraphQLContext } from '@EMERE/utils';
+import { IGraphQLContext } from '@app/utils';
 import { AuthenticationError } from 'apollo-server-express';
 
 export const isAuthenticated = rule()(async (parent, args, ctx: IGraphQLContext, info) => {

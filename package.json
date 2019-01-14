@@ -1,7 +1,7 @@
 {
-  "name": "emere-graphql",
+  "name": "tsnode-express-apollo-graphql-starter",
   "version": "1.0.0",
-  "description": "GraphQL Server for E-MERE",
+  "description": "Apollo GraphQL Server Starter project",
   "private": true,
   "scripts": {
     "start": "npm-run-all pm2:*",
@@ -19,19 +19,32 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://zeferinix@bitbucket.org/brader/emere-graphql.git"
+    "url": "git+https://github.com/cerino-ligutom/TS-Node-Express-GraphQL-Starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cerino-ligutom/TS-Node-Express-GraphQL-Starter/issues"
   },
   "keywords": [
-    "emere",
-    "e-mere",
+    "pm2",
     "node",
+    "typescript",
+    "tslint",
+    "ts-node",
+    "express",
     "graphql",
-    "javascript",
-    "typescript"
+    "apollo-graphql",
+    "graphql-shield",
+    "facebook-dataloader",
+    "passport",
+    "typeorm",
+    "postgres",
+    "winston",
+    "bcrypt",
+    "gql-gen"
   ],
   "author": "Cerino O. Ligutom III <zeferinix@gmail.com>",
-  "license": "Apache-2.0",
-  "homepage": "https://bitbucket.org/brader/emere-graphql#readme",
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/cerino-ligutom/TS-Node-Express-GraphQL-Starter",
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
     "@types/compression": "0.0.36",

@@ -1,8 +1,8 @@
 import { Strategy as JwtStrategy } from 'passport-jwt';
 import passport from 'passport';
-import { JWT_OPTIONS } from '@EMERE/config/jwt-options';
-import { UserRepository } from '@EMERE/pg/repositories';
-import { IJwtPayload } from '@EMERE/utils';
+import { JWT_OPTIONS } from '@app/config/jwt-options';
+import { UserRepository } from '@app/pg/repositories';
+import { IJwtPayload } from '@app/utils';
 
 passport.use(
   'jwt',

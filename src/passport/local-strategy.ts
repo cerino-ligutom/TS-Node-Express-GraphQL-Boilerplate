@@ -1,8 +1,8 @@
 import { Strategy as LocalStrategy } from 'passport-local';
 import passport from 'passport';
-import { UserRepository } from '@EMERE/pg/repositories';
-import { User } from '@EMERE/pg/models';
-import { PasswordService } from '@EMERE/utils';
+import { UserRepository } from '@app/pg/repositories';
+import { User } from '@app/pg/models';
+import { PasswordService } from '@app/utils';
 
 passport.use(
   'local',

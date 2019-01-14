@@ -1,4 +1,4 @@
-import { User } from '@EMERE/pg/models';
+import { User } from '@app/pg/models';
 
 import { BaseRepository } from './base.repository';
 

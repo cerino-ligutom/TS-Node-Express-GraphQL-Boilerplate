@@ -1,4 +1,4 @@
-import { IGraphQLContext } from '@EMERE/utils';
+import { IGraphQLContext } from '@app/utils';
 
 export default {
   // @ts-ignore

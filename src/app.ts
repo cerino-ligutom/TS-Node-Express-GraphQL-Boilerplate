@@ -3,8 +3,8 @@ import cors from 'cors';
 import express, { Request, Response, NextFunction } from 'express';
 import HttpStatus from 'http-status-codes';
 
-import { env } from '@EMERE/config/environment';
-import { logger } from '@EMERE/utils';
+import { env } from '@app/config/environment';
+import { logger } from '@app/utils';
 
 import passport from 'passport';
 import './passport';

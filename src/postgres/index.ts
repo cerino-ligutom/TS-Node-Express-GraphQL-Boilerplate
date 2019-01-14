@@ -1,6 +1,6 @@
 import 'reflect-metadata'; // Required by TypeORM
 import { createConnection, getConnectionOptions } from 'typeorm';
-import { env } from '@EMERE/config/environment';
+import { env } from '@app/config/environment';
 
 export const initDbConnection = async () => {
   const connectionOpts = await getConnectionOptions(env.PG_TYPEORM_CONNECTION_NAME);

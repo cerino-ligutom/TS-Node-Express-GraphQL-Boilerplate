@@ -1,6 +1,6 @@
 import { userByIdLoader } from './userById';
 import DataLoader from 'dataloader';
-import { User } from '@EMERE/pg/models';
+import { User } from '@app/pg/models';
 
 export interface ILoaders {
   userById: DataLoader<number, User | null>;

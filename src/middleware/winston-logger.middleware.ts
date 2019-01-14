@@ -2,7 +2,7 @@ import { Express } from 'express';
 import winston from 'winston';
 import expressWinston from 'express-winston';
 import fs from 'fs';
-import { WinstonService } from '@EMERE/utils';
+import { WinstonService } from '@app/utils';
 
 if (!fs.existsSync(WinstonService.config.LOGS_FOLDER_PATH)) {
   fs.mkdirSync(WinstonService.config.LOGS_FOLDER_PATH);

@@ -1,5 +1,5 @@
 import express from 'express';
-import { MaintenanceController } from '@EMERE/controllers';
+import { MaintenanceController } from '@app/controllers';
 
 const maintenanceController = new MaintenanceController();
 

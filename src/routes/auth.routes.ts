@@ -1,5 +1,5 @@
 import express from 'express';
-import { AuthController } from '@EMERE/controllers';
+import { AuthController } from '@app/controllers';
 
 const authController = new AuthController();
 

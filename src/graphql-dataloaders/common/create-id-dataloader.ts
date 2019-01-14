@@ -1,4 +1,4 @@
-import { IRepository } from '@EMERE/pg/repositories';
+import { IRepository } from '@app/pg/repositories';
 import DataLoader from 'dataloader';
 import _ from 'lodash';
 

@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { JWT_OPTIONS } from '@EMERE/config/jwt-options';
+import { JWT_OPTIONS } from '@app/config/jwt-options';
 
 const sign = (payload: {}) => {
   const secretKey = `${JWT_OPTIONS.secretOrKey}`;

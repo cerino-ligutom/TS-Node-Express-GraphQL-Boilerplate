@@ -1,7 +1,7 @@
-import { IGraphQLContext } from '@EMERE/utils';
-import { User } from '@EMERE/pg/models';
+import { IGraphQLContext } from '@app/utils';
+import { User } from '@app/pg/models';
 import _ from 'lodash';
-import { PasswordService } from '@EMERE/utils';
+import { PasswordService } from '@app/utils';
 import { MutationResolvers, ICreateUserMutationResponse } from 'typings/app-graphql-schema';
 
 const createUser: MutationResolvers.CreateUserResolver = async (
