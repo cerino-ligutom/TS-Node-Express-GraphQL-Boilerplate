@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm-run-all pm2:*",
     "build": "npm run clean && tsc && npm run lint",
-    "lint": "tslint -c tslint.json 'src/**/*.ts",
+    "lint": "tslint -p tsconfig.json",
     "gql-gen": "npm-run-all create:typings-folder watch:graphql-schema",
     "tsc": "tsc",
     "clean": "rimraf ./dist",
