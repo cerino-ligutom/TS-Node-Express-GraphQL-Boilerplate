@@ -55,7 +55,7 @@ const startApp = async () => {
   });
 
   app.listen(env.PORT, () => {
-    console.info(`EMERE Server is now up @ ${env.HOST}:${env.PORT}`);
+    console.info(`Server is now up @ ${env.HOST}:${env.PORT}`);
   });
 };
 startApp();
