@@ -9,7 +9,7 @@ const createUser: MutationResolvers.CreateUserResolver = async (
   const createdUser = await ctx.services.userService.createUser(input);
 
   return {
-    data: createdUser,
+    user: createdUser,
     success: true,
     message: 'User successfully created.',
   };

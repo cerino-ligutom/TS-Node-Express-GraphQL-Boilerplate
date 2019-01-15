@@ -330,7 +330,7 @@
         "description": "",
         "fields": [
           {
-            "name": "data",
+            "name": "user",
             "description": "",
             "args": [],
             "type": { "kind": "OBJECT", "name": "User", "ofType": null },
@@ -475,7 +475,7 @@
         "description": "",
         "fields": [
           {
-            "name": "data",
+            "name": "user",
             "description": "",
             "args": [],
             "type": { "kind": "OBJECT", "name": "User", "ofType": null },
@@ -518,7 +518,7 @@
         "description": "",
         "fields": [
           {
-            "name": "data",
+            "name": "user",
             "description": "",
             "args": [],
             "type": { "kind": "OBJECT", "name": "User", "ofType": null },

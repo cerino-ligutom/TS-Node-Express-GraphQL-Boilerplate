@@ -15,7 +15,7 @@ const updateUser: MutationResolvers.UpdateUserResolver = async (
   }
 
   return {
-    data: updatedUser,
+    user: updatedUser,
     success: !!updatedUser,
     message: '',
   };

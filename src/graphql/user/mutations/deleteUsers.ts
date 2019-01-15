@@ -14,7 +14,7 @@ const deleteUser: MutationResolvers.DeleteUserResolver = async (
   }
 
   return {
-    data: deletedUser,
+    user: deletedUser,
     message: '',
     success: !!deletedUser,
   };
