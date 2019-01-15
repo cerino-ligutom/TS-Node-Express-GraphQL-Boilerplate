@@ -1,11 +1,12 @@
 import { DeepPartial, getConnection, FindManyOptions, FindOneOptions } from 'typeorm';
 import { IRepository } from './interfaces';
+import { env } from '@app/config/environment';
 
 export class BaseRepository<T> implements IRepository<T> {
   constructor(protected entity: new () => T) {}
 
   protected get repository() {
-    return getConnection().getRepository(this.entity);
+    return getConnection(env.PG_TYPEORM_CONNECTION_NAME).getRepository(this.entity);
   }
 
   public async findById(id: number): Promise<T | null> {
