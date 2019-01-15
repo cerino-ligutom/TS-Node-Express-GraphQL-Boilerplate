@@ -3,19 +3,20 @@ import { MutationResolvers, IDeleteUserMutationResponse } from 'typings/app-grap
 const deleteUser: MutationResolvers.DeleteUserResolver = async (
   root,
   { id },
-  ctx,
+  { services, loaders },
 ): Promise<IDeleteUserMutationResponse> => {
-  const user = await ctx.pg.UserRepository.findById(id);
+  const { userService } = services;
 
-  if (user) {
-    await ctx.pg.UserRepository.remove(user);
-    await ctx.loaders.userById.clear(user.id);
+  const deletedUser = await userService.deleteUser(id);
+
+  if (deletedUser) {
+    loaders.userById.clear(id);
   }
 
   return {
-    data: user,
+    data: deletedUser,
     message: '',
-    success: !!user,
+    success: !!deletedUser,
   };
 };
 

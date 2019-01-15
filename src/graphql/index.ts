@@ -3,10 +3,10 @@ import { ApolloServer, ApolloError } from 'apollo-server-express';
 import depthLimit from 'graphql-depth-limit';
 import { schema } from './schema';
 import { IGraphQLContext, logger } from '@app/utils';
-import { UserRepository } from '@app/pg/repositories';
 import { GraphQLRouter } from 'src/routes/graphql.routes';
 import { initLoaders } from '../graphql-dataloaders';
 import { env } from '@app/config/environment';
+import { services } from '@app/core/services';
 
 export const initApolloGraphqlServer = (app: Express) => {
   const server = new ApolloServer({
@@ -16,10 +16,7 @@ export const initApolloGraphqlServer = (app: Express) => {
 
       const graphqlContext: IGraphQLContext = {
         user,
-        // postgres
-        pg: {
-          UserRepository: new UserRepository(),
-        },
+        services,
         loaders: initLoaders(),
       };
 

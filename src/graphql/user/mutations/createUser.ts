@@ -1,7 +1,4 @@
-import { IGraphQLContext } from '@app/utils';
-import { User } from '@app/pg/models';
 import _ from 'lodash';
-import { PasswordService } from '@app/utils';
 import { MutationResolvers, ICreateUserMutationResponse } from 'typings/app-graphql-schema';
 
 const createUser: MutationResolvers.CreateUserResolver = async (
@@ -9,21 +6,7 @@ const createUser: MutationResolvers.CreateUserResolver = async (
   { input },
   ctx,
 ): Promise<ICreateUserMutationResponse> => {
-  const user = new User();
-  user.username = input.username;
-  user.email = input.email;
-  user.firstName = input.firstName;
-  user.middleName = input.middleName;
-  user.lastName = input.lastName;
-  user.description = input.description;
-
-  const salt = await PasswordService.generateSalt();
-  const hash = await PasswordService.generateHash(input.password, salt);
-
-  user.passwordSalt = salt;
-  user.passwordHash = hash;
-
-  const createdUser = await ctx.pg.UserRepository.save(user);
+  const createdUser = await ctx.services.userService.createUser(input);
 
   return {
     data: createdUser,
