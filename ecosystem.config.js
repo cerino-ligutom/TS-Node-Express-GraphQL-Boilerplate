@@ -1,13 +1,13 @@
 module.exports = {
   apps: [
     {
-      name: 'GraphQL Server',
+      name: 'EMERE-GraphQL',
       script: 'index.js',
 
       // Options reference: https://pm2.io/doc/en/runtime/reference/ecosystem-file/
       autorestart: true,
       max_restarts: 1,
-      min_uptime: 5000,
+      min_uptime: '10s',
       watch: ['src/**/*.ts'],
       max_memory_restart: '1G'
     }
