@@ -26,7 +26,7 @@
             "deprecationReason": "No longer supported"
           },
           {
-            "name": "User",
+            "name": "user",
             "description": "",
             "args": [
               {
@@ -135,6 +135,14 @@
           },
           {
             "name": "lastName",
+            "description": "",
+            "args": [],
+            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fullName",
             "description": "",
             "args": [],
             "type": { "kind": "SCALAR", "name": "String", "ofType": null },

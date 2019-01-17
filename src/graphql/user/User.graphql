@@ -1,5 +1,5 @@
 extend type Query {
-  User(id: Int!): User
+  user(id: Int!): User
 }
 
 extend type Mutation {
@@ -16,6 +16,7 @@ type User {
   firstName: String
   middleName: String
   lastName: String
+  fullName: String
   description: String
   createdAt: Date
   updatedAt: Date
