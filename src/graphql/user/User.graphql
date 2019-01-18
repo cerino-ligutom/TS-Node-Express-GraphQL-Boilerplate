@@ -17,8 +17,9 @@ type User {
   lastName: String
   fullName: String
   description: String
-  createdAt: Date
-  updatedAt: Date
+  gender: Gender
+  createdAt: DateTime
+  updatedAt: DateTime
 }
 
 input CreateUserInput {
@@ -29,6 +30,7 @@ input CreateUserInput {
   middleName: String!
   lastName: String!
   description: String
+  gender: Gender
 }
 
 input UpdateUserInput {
@@ -37,6 +39,7 @@ input UpdateUserInput {
   middleName: String!
   lastName: String!
   description: String
+  gender: Gender
 }
 
 type CreateUserMutationResponse implements MutationResponse {

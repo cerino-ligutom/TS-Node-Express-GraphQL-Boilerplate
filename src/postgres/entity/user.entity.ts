@@ -1,5 +1,6 @@
 import { Column, CreateDateColumn, Entity, Generated, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { Node } from './common/node';
+import { Gender } from '@app/core/enums';
 
 @Entity()
 export class User extends Node {
@@ -37,6 +38,13 @@ export class User extends Node {
     type: 'text',
   })
   public description!: string | null | undefined;
+
+  @Column({
+    type: 'enum',
+    enum: Gender,
+    nullable: true,
+  })
+  public gender!: Gender;
 
   @CreateDateColumn({
     type: 'timestamptz',

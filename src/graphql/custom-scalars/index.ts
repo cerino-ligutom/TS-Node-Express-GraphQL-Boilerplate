@@ -1,3 +1,3 @@
-import Date from './Date';
+import DateTime from './DateTime';
 
-export const scalars = { Date };
+export const scalars = { DateTime };

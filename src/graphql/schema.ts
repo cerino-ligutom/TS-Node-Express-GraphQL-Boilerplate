@@ -2,6 +2,7 @@ import path from 'path';
 import { fileLoader, mergeResolvers, mergeTypes } from 'merge-graphql-schemas';
 import { makeExecutableSchema } from 'apollo-server-express';
 import { scalars } from './custom-scalars';
+import { enums } from './custom-enums';
 import { applyMiddleware } from 'graphql-middleware';
 import { schemaPermissions } from '../graphql-shield';
 import { depthOfObject } from 'src/utils/depthOfObject';
@@ -77,7 +78,7 @@ const queries = getQueries();
 const mutations = getMutations();
 
 let resolvers = mergeResolvers([...queries, ...mutations]);
-resolvers = { ...resolvers, ...scalars }; // Don't forget the scalars
+resolvers = { ...resolvers, ...scalars, ...enums }; // Add scalars and enums
 const typeDefs = mergeTypes(getTypeDefs());
 
 let graphqlSchema = makeExecutableSchema({

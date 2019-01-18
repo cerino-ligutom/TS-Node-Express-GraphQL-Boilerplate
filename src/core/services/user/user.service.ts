@@ -1,12 +1,13 @@
 import { UserRepository } from '@app/pg/repositories';
 import { User } from '@app/pg/models';
-import { ICreateUserInput, IUpdateUserInput } from 'typings/app-graphql-schema';
+import { CreateUserInput } from 'typings/app-graphql-schema';
 import { PasswordService } from '@app/utils';
+import _ from 'lodash';
 
 export class UserService {
   private userRepository: UserRepository = new UserRepository();
 
-  public async createUser(input: ICreateUserInput): Promise<User> {
+  public async createUser(input: CreateUserInput): Promise<User> {
     const user = new User();
     user.username = input.username;
     user.email = input.email;
@@ -26,15 +27,11 @@ export class UserService {
     return createdUser;
   }
 
-  public async updateUser(input: IUpdateUserInput): Promise<User | null> {
+  public async updateUser(input: User): Promise<User | null> {
     let user = await this.findById(input.id);
 
     if (user) {
-      user.firstName = input.firstName;
-      user.middleName = input.middleName;
-      user.lastName = input.lastName;
-      user.description = input.description;
-
+      user = _.merge(user, input);
       user = await this.userRepository.save(user);
     }
 

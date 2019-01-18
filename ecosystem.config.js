@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'EMERE-GraphQL',
+      name: 'APP-GraphQL',
       script: 'index.js',
 
       // Options reference: https://pm2.io/doc/en/runtime/reference/ecosystem-file/

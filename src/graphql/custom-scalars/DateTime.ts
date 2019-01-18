@@ -25,8 +25,8 @@ function formatDates(date: any) {
 }
 
 export default new GraphQLScalarType({
-  name: 'Date',
-  description: 'Date type',
+  name: 'DateTime',
+  description: 'DateTime type',
   // value comes from resolvers
   serialize: (value) => formatDates(value), // sent to the client
 
