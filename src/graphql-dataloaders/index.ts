@@ -3,7 +3,7 @@ import DataLoader from 'dataloader';
 import { User } from '@app/pg/models';
 
 export interface ILoaders {
-  userById: DataLoader<number, User | null>;
+  userById: DataLoader<string, User | null>;
 }
 
 export const initLoaders = () => {

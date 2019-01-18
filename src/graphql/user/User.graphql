@@ -1,16 +1,15 @@
 extend type Query {
-  user(id: Int!): User
+  user(id: ID!): User
 }
 
 extend type Mutation {
   createUser(input: CreateUserInput!): CreateUserMutationResponse
   updateUser(input: UpdateUserInput!): UpdateUserMutationResponse
-  deleteUser(id: Int!): DeleteUserMutationResponse
+  deleteUser(id: ID!): DeleteUserMutationResponse
 }
 
 type User {
-  id: Int
-  uuid: String
+  id: ID
   username: String
   email: String
   firstName: String
@@ -33,7 +32,7 @@ input CreateUserInput {
 }
 
 input UpdateUserInput {
-  id: Int!
+  id: ID!
   firstName: String!
   middleName: String!
   lastName: String!

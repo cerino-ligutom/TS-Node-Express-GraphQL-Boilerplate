@@ -15,6 +15,6 @@ export const JwtService = {
 
 export interface IJwtPayload {
   user: {
-    id: number;
+    id: string;
   };
 }

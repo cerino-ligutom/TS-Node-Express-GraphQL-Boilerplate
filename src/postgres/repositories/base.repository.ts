@@ -9,7 +9,7 @@ export class BaseRepository<T> implements IRepository<T> {
     return getConnection(env.PG_TYPEORM_CONNECTION_NAME).getRepository(this.entity);
   }
 
-  public async findById(id: number): Promise<T | null> {
+  public async findById(id: string): Promise<T | null> {
     if (!id) {
       throw new Error('No id provided.');
     }
@@ -19,7 +19,7 @@ export class BaseRepository<T> implements IRepository<T> {
     return !!entity ? entity : null;
   }
 
-  public async findByIds(ids: number[]): Promise<T[]> {
+  public async findByIds(ids: string[]): Promise<T[]> {
     if (!ids || !ids.length) {
       throw new Error('No ids provided.');
     }

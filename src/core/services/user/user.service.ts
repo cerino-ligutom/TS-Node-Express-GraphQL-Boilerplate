@@ -41,12 +41,12 @@ export class UserService {
     return user;
   }
 
-  public async findById(id: number): Promise<User | null> {
+  public async findById(id: string): Promise<User | null> {
     // this.checkCanSee();
     return this.userRepository.findById(id) || null;
   }
 
-  public async deleteUser(id: number): Promise<User | null> {
+  public async deleteUser(id: string): Promise<User | null> {
     const user = await this.findById(id);
 
     if (user) {

@@ -1,14 +1,8 @@
 import { Column, CreateDateColumn, Entity, Generated, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { Node } from './common/node';
 
 @Entity()
-export class User {
-  @PrimaryGeneratedColumn()
-  public id!: number;
-
-  @Column()
-  @Generated('uuid')
-  public uuid!: string;
-
+export class User extends Node {
   @Column({
     unique: true,
   })
