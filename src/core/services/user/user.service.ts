@@ -1,13 +1,13 @@
 import { UserRepository } from '@app/pg/repositories';
 import { User } from '@app/pg/models';
-import { CreateUserInput } from 'typings/app-graphql-schema';
+import { ICreateUserInput } from 'typings/app-graphql-schema';
 import { PasswordService } from '@app/utils';
 import _ from 'lodash';
 
 export class UserService {
   private userRepository: UserRepository = new UserRepository();
 
-  public async createUser(input: CreateUserInput): Promise<User> {
+  public async createUser(input: ICreateUserInput): Promise<User> {
     const user = new User();
     user.username = input.username;
     user.email = input.email;
