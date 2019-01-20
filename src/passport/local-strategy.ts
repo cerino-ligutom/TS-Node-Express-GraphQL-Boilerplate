@@ -16,9 +16,7 @@ passport.use(
       const userRepo = new UserRepository();
 
       try {
-        const user = await userRepo.findOne({
-          where: [{ username } as User, { email: username } as User],
-        });
+        const user = await userRepo.findByUsernameOrEmail(username);
 
         if (user) {
           const isValidPassword = await PasswordService.verify(password, user.passwordHash, user.passwordSalt);

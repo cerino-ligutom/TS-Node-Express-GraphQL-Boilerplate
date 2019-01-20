@@ -34,14 +34,4 @@ export class BaseRepository<T> implements IRepository<T> {
   public async remove(data: T): Promise<T> {
     return await this.repository.remove(data);
   }
-
-  public async find(options: FindManyOptions<T>): Promise<T[]> {
-    return await this.repository.find(options);
-  }
-
-  public async findOne(options: FindOneOptions<T>): Promise<T | null> {
-    const entity = await this.repository.findOne(options);
-
-    return !!entity ? entity : null;
-  }
 }

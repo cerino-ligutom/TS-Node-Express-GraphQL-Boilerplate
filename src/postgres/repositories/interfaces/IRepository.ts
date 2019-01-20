@@ -5,6 +5,4 @@ export interface IRepository<T> {
   findByIds(ids: string[]): Promise<T[]>;
   save(data: DeepPartial<T>): Promise<T>;
   remove(data: T): Promise<T>;
-  find(options: FindManyOptions<T>): Promise<T[]>;
-  findOne(options: FindOneOptions<T>): Promise<T | null>;
 }

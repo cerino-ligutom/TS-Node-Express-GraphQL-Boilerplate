@@ -1,6 +1,7 @@
-import { Column, CreateDateColumn, Entity, Generated, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, UpdateDateColumn, OneToMany } from 'typeorm';
 import { Node } from './common/node';
 import { Gender } from '@app/core/enums';
+import { Address } from './address.entity';
 
 @Entity()
 export class User extends Node {
@@ -45,6 +46,9 @@ export class User extends Node {
     nullable: true,
   })
   public gender!: Gender;
+
+  @OneToMany((type) => Address, (address) => address.user)
+  public addresses!: Address;
 
   @CreateDateColumn({
     type: 'timestamptz',
