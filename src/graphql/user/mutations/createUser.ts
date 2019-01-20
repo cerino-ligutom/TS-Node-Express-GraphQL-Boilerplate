@@ -1,11 +1,11 @@
 import _ from 'lodash';
-import { MutationResolvers, CreateUserMutationResponse } from 'typings/app-graphql-schema';
+import { MutationResolvers, ICreateUserMutationResponse } from 'typings/app-graphql-schema';
 
 const createUser: MutationResolvers.CreateUserResolver = async (
   root,
   { input },
   ctx,
-): Promise<CreateUserMutationResponse> => {
+): Promise<ICreateUserMutationResponse> => {
   const createdUser = await ctx.services.userService.createUser(input);
 
   return {

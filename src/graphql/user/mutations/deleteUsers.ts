@@ -1,10 +1,10 @@
-import { MutationResolvers, DeleteUserMutationResponse } from 'typings/app-graphql-schema';
+import { MutationResolvers, IDeleteUserMutationResponse } from 'typings/app-graphql-schema';
 
 const deleteUser: MutationResolvers.DeleteUserResolver = async (
   root,
   { id },
   { services, loaders },
-): Promise<DeleteUserMutationResponse> => {
+): Promise<IDeleteUserMutationResponse> => {
   const { userService } = services;
 
   const deletedUser = await userService.deleteUser(id);

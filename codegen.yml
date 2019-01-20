@@ -4,11 +4,15 @@ watch: true
 generates:
   typings/app-graphql-schema/index.d.ts:
     config:
-      contextType: '../../src/utils/graphql/interfaces/IGraphQLContext#IGraphQLContext'
+      interfacePrefix: I
+      contextType: ../../src/utils/graphql/interfaces/IGraphQLContext#IGraphQLContext
+      enums:
+        Gender: ../../src/core/enums/gender.enum#Gender
     plugins:
-      - 'typescript-common'
-      - 'typescript-server'
-      - 'typescript-resolvers'
+      - typescript-common
+      - typescript-server
+      - typescript-resolvers
+
   schema.graphql.json:
     plugins:
-      - 'introspection'
+      - introspection

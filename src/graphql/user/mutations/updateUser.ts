@@ -1,12 +1,12 @@
 import _ from 'lodash';
-import { MutationResolvers, UpdateUserMutationResponse } from 'typings/app-graphql-schema';
+import { MutationResolvers, IUpdateUserMutationResponse } from 'typings/app-graphql-schema';
 import { User } from '@app/pg/models';
 
 const updateUser: MutationResolvers.UpdateUserResolver = async (
   root,
   { input },
   { services, loaders },
-): Promise<UpdateUserMutationResponse> => {
+): Promise<IUpdateUserMutationResponse> => {
   const user = _.merge(new User(), input);
 
   const { userService } = services;
