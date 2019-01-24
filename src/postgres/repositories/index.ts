@@ -1,3 +1,8 @@
 export * from './interfaces';
-export * from './user.repository';
-export * from './address.repository';
+import { userRepository } from './user.repository';
+import { addressRepository } from './address.repository';
+
+export const repositories = {
+  userRepository,
+  addressRepository,
+};

@@ -1,5 +1,7 @@
-import { AddressRepository } from '@app/pg/repositories';
+import { repositories } from '@app/pg/repositories';
 
-export class AddressService {
-  private addressRepository: AddressRepository = new AddressRepository();
-}
+const { addressRepository } = repositories;
+
+export class AddressService {}
+
+export const addressService = new AddressService();

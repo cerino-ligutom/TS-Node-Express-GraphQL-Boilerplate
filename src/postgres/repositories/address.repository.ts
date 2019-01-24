@@ -7,3 +7,5 @@ export class AddressRepository extends BaseRepository<Address> {
     super(Address);
   }
 }
+
+export const addressRepository = new AddressRepository();

@@ -13,3 +13,5 @@ export class UserRepository extends BaseRepository<User> {
     });
   }
 }
+
+export const userRepository = new UserRepository();

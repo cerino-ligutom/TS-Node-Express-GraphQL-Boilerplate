@@ -1,12 +1,12 @@
-import { UserRepository } from '@app/pg/repositories';
+import { repositories } from '@app/pg/repositories';
 import { User } from '@app/pg/models';
 import { ICreateUserInput } from 'typings/app-graphql-schema';
 import { PasswordService } from '@app/utils';
 import _ from 'lodash';
 
-export class UserService {
-  private userRepository: UserRepository = new UserRepository();
+const { userRepository } = repositories;
 
+export class UserService {
   public async createUser(input: ICreateUserInput): Promise<User> {
     const user = new User();
     user.username = input.username;
@@ -22,7 +22,7 @@ export class UserService {
     user.passwordSalt = salt;
     user.passwordHash = hash;
 
-    const createdUser = await this.userRepository.save(user);
+    const createdUser = await userRepository.save(user);
 
     return createdUser;
   }
@@ -32,7 +32,7 @@ export class UserService {
 
     if (user) {
       user = _.merge(user, input);
-      user = await this.userRepository.save(user);
+      user = await userRepository.save(user);
     }
 
     return user;
@@ -40,14 +40,14 @@ export class UserService {
 
   public async findById(id: string): Promise<User | null> {
     // this.checkCanSee();
-    return this.userRepository.findById(id) || null;
+    return userRepository.findById(id) || null;
   }
 
   public async deleteUser(id: string): Promise<User | null> {
     const user = await this.findById(id);
 
     if (user) {
-      await this.userRepository.remove(user);
+      await userRepository.remove(user);
     }
 
     return user;
@@ -59,3 +59,5 @@ export class UserService {
     return;
   }
 }
+
+export const userService = new UserService();
