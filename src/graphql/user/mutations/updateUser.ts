@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { MutationResolvers, IUpdateUserMutationResponse } from 'typings/app-graphql-schema';
+import { MutationResolvers, IUpdateUserMutationResponse } from '@app/graphql-generated-schema';
 import { User } from '@app/pg/models';
 
 const updateUser: MutationResolvers.UpdateUserResolver = async (

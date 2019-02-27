@@ -1,6 +1,6 @@
 import { repositories } from '@app/pg/repositories';
 import { User } from '@app/pg/models';
-import { ICreateUserInput } from 'typings/app-graphql-schema';
+import { ICreateUserInput } from '@app/graphql-generated-schema';
 import { PasswordService } from '@app/utils';
 import _ from 'lodash';
 

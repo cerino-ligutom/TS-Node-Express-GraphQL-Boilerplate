@@ -1,4 +1,4 @@
-import { MutationResolvers, IDeleteUserMutationResponse } from 'typings/app-graphql-schema';
+import { MutationResolvers, IDeleteUserMutationResponse } from '@app/graphql-generated-schema';
 
 const deleteUser: MutationResolvers.DeleteUserResolver = async (
   root,

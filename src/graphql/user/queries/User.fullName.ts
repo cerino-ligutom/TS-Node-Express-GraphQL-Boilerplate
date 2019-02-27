@@ -1,4 +1,4 @@
-import { UserResolvers } from 'typings/app-graphql-schema';
+import { UserResolvers } from '@app/graphql-generated-schema';
 
 const fullName: UserResolvers.FullNameResolver = (parent) => {
   const names = [];

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { MutationResolvers, ICreateUserMutationResponse } from 'typings/app-graphql-schema';
+import { MutationResolvers, ICreateUserMutationResponse } from '@app/graphql-generated-schema';
 
 const createUser: MutationResolvers.CreateUserResolver = async (
   root,

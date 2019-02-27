@@ -8,13 +8,12 @@
     "production": "ts-node ./src/app.ts",
     "build": "npm run clean && tsc && npm run lint",
     "lint": "tslint -p tsconfig.json",
-    "gql-gen": "npm-run-all create:typings-folder watch:graphql-schema",
+    "gql-gen": "gql-gen",
     "tsc": "tsc",
     "clean": "rimraf ./dist",
     "create:typings-folder": "node ./scripts/create-typings-folder.js",
     "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
-    "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert",
-    "watch:graphql-schema": "gql-gen"
+    "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert"
   },
   "repository": {
     "type": "git",
