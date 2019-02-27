@@ -13,7 +13,7 @@ const getTypeDefs = () => {
 
 const getQueries = () => {
   const loadedQueries = fileLoader(path.join(__dirname, '**/queries/*.ts'));
-  return loadedQueries.map((query) => {
+  return loadedQueries.map(query => {
     /*
       Note:
       This function is a utility for the merging process of resolvers.
@@ -59,18 +59,20 @@ const getQueries = () => {
     if (objectDepth === 1) {
       // Query object is extending type Query
       return { Query: query };
-    } else if (objectDepth === 2) {
+    }
+
+    if (objectDepth === 2) {
       // Query object is a field resolver
       return query;
-    } else {
-      throw new Error('Query object cannot have a depth of other than 1 or 2.');
     }
+
+    throw new Error('Query object cannot have a depth of other than 1 or 2.');
   });
 };
 
 const getMutations = () => {
   const loadedMutations = fileLoader(path.join(__dirname, '**/mutations/*.ts'));
-  return loadedMutations.map((mutation) => ({ Mutation: mutation }));
+  return loadedMutations.map(mutation => ({ Mutation: mutation }));
 };
 
 // Create Schema
@@ -84,10 +86,10 @@ const typeDefs = mergeTypes(getTypeDefs());
 let graphqlSchema = makeExecutableSchema({
   typeDefs,
   resolvers,
-  logger: { log: (e) => console.info(e) },
+  logger: { log: e => console.info(e) },
   resolverValidationOptions: {
-    requireResolversForResolveType: false,
-  },
+    requireResolversForResolveType: false
+  }
 });
 
 // Apply graphql-shield middleware

@@ -11,7 +11,7 @@ passport.use(
     {
       usernameField: 'usernameOrEmail',
       passwordField: 'password',
-      session: false,
+      session: false
     },
     async (username, password, done) => {
       try {
@@ -22,15 +22,13 @@ passport.use(
 
           if (isValidPassword) {
             return done(undefined, user, { message: 'Logged in successfully ' });
-          } else {
-            return done(undefined, false, { message: 'Wrong password' });
           }
-        } else {
-          return done(undefined, false, { message: 'User not found.' });
+          return done(undefined, false, { message: 'Wrong password' });
         }
+        return done(undefined, false, { message: 'User not found.' });
       } catch (error) {
         return done(error, false, { message: '[local-strategy] Something went wrong.' });
       }
-    },
-  ),
+    }
+  )
 );
