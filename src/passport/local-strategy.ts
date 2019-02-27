@@ -1,8 +1,9 @@
 import { Strategy as LocalStrategy } from 'passport-local';
 import passport from 'passport';
-import { UserRepository } from '@app/pg/repositories';
-import { User } from '@app/pg/models';
+import { repositories } from '@app/pg/repositories';
 import { PasswordService } from '@app/utils';
+
+const { userRepository } = repositories;
 
 passport.use(
   'local',
@@ -13,10 +14,8 @@ passport.use(
       session: false,
     },
     async (username, password, done) => {
-      const userRepo = new UserRepository();
-
       try {
-        const user = await userRepo.findByUsernameOrEmail(username);
+        const user = await userRepository.findByUsernameOrEmail(username);
 
         if (user) {
           const isValidPassword = await PasswordService.verify(password, user.passwordHash, user.passwordSalt);

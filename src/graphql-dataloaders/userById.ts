@@ -1,8 +1,10 @@
-import { UserRepository } from '@app/pg/repositories';
-import { createIdDataLoader } from './common';
 import DataLoader from 'dataloader';
+import { services } from '@app/core/services';
+
+const { userService } = services;
 
 export const userByIdLoader = () => {
-  const userRepo = new UserRepository();
-  return createIdDataLoader(userRepo);
+  return new DataLoader(async (ids: string[]) => {
+    return ids.map(async (id) => await userService.findById(id) || null);
+  });
 };

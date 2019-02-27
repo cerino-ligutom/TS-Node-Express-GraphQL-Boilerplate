@@ -4,14 +4,13 @@
   "description": "Apollo GraphQL Server Starter project",
   "private": true,
   "scripts": {
-    "start": "npm-run-all pm2:*",
+    "start": "nodemon",
+    "production": "ts-node ./src/app.ts",
     "build": "npm run clean && tsc && npm run lint",
     "lint": "tslint -p tsconfig.json",
     "gql-gen": "npm-run-all create:typings-folder watch:graphql-schema",
     "tsc": "tsc",
     "clean": "rimraf ./dist",
-    "pm2:start-app": "pm2 start ecosystem.config.js",
-    "pm2:logs": "pm2 logs",
     "create:typings-folder": "node ./scripts/create-typings-folder.js",
     "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
     "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert",
@@ -25,7 +24,6 @@
     "url": "https://github.com/cerino-ligutom/TS-Node-Express-GraphQL-Starter/issues"
   },
   "keywords": [
-    "pm2",
     "node",
     "typescript",
     "tslint",

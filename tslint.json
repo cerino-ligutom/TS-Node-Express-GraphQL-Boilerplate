@@ -12,7 +12,8 @@
     "max-line-length": false,
     "no-any": true,
     "variable-name": false,
-    "member-access": false
+    "member-access": false,
+    "import-name": false
   },
   "rulesDirectory": []
 }

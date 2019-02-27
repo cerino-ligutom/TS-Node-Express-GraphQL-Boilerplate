@@ -1,3 +1,5 @@
+import 'tsconfig-paths/register';
+
 import compression from 'compression';
 import cors from 'cors';
 import express, { Request, Response, NextFunction } from 'express';
