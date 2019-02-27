@@ -1,6 +1,6 @@
 {
   "defaultSeverity": "error",
-  "extends": ["tslint:recommended"],
+  "extends": ["tslint-config-airbnb", "tslint-config-prettier"],
   "jsRules": {},
   "rules": {
     "no-console": [true, "log"],
@@ -11,7 +11,8 @@
     "object-literal-sort-keys": false,
     "max-line-length": false,
     "no-any": true,
-    "variable-name": false
+    "variable-name": false,
+    "member-access": false
   },
   "rulesDirectory": []
 }
